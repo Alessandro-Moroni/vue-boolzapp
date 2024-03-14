@@ -71,7 +71,7 @@
           <!-- users list -->
           <div class="users-list">
 
-            <div v-for="(user, index) in contacts" class="row users-chat">
+            <div v-for="(user, index) in contacts" @click="selectChat(index)" class="row users-chat">
               <div class="profile row">
                 <img :src="user.avatar" alt="">
               </div>
@@ -79,7 +79,7 @@
               <div class="row name">
                 <div>
                   <h3>{{user.name}}</h3>
-                  <span v-for="(text, index) in user.messages"> {{text.message}}</span>
+                  <span> {{user.messages[user.messages.length-1].message}}</span>
                 </div>
                 <div class="hour">16:05</div>
               </div>
@@ -127,43 +127,26 @@
             </div>
           </div>
 
-          <div class="chat">
-            <div class="row send-messages">
-              <div class="text-right">
-                <div class="row">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa pariatur quas illum corporis aut delectus sequi, nemo ipsa, numquam, iusto deserunt et repellendus eius aliquid? Nobis eveniet ratione qui ea?
-                  <div class="window">
-                    <a href="">&#8744</a>
-                    <div class="info">
-                      <div>Info messaggio</div>
-                      <div>Cancella messaggio</div>
-                    </div>
-                  </div>
-
+          <div
+            class="chat">
+            <div v-for="messageText in contacts[userChat].messages"
+            :class="{'sent':messageText.status === 'sent', 'left':messageText.status === 'received'}">
+              <div class="msg  right" v-if="messageText.status === 'sent'">
+                <div class=" chat-right msg-chat ">
+                  <p>{{messageText.message}}</p>
+                  <p class="number">{{messageText.date}}</p>
                 </div>
-                <div class="row number">
-                  16:13
+              </div>
+
+              <div class="msg left" v-if="messageText.status === 'received'">
+                <div class="msg-chat chat-left">
+                  <p>{{messageText.message}}</p>
+                  <p class="number">{{messageText.date}}</p>
                 </div>
               </div>
             </div>
-
-            <div>
-              <div class="text-left">
-                <div class="row">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa pariatur quas illum corporis aut delectus sequi, nemo ipsa, numquam, iusto deserunt et repellendus eius aliquid? Nobis eveniet ratione qui ea?
-                  <div class="window">
-                    <a href="">&#8744</a>
-                    <div class="info">
-                      <div>Info messaggio</div>
-                      <div>Cancella messaggio</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="number row">
-                  16:15
-                </div>
-            </div>
-            </div>
+            
+           
           </div>
 
           <div class="row user keyboard">

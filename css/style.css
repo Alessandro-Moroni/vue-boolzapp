@@ -67,6 +67,7 @@ ul li{
   overflow-y: scroll;
   background-color: rgb(250, 250, 250);
   border-right: 1px solid rgb(214, 214, 214);
+  cursor: pointer;
 
 }
 img{
@@ -160,52 +161,37 @@ img{
   padding: 60px 40px;
   overflow-y: scroll;
   background-image: url(../img/mine.jpg);
+  display: flex;
+  flex-direction: column;
+
 }
-.chat .send-messages{
+.chat .msg{
+  width: 100%;
+  display: flex;
+}
+.msg-chat{
+  width: 600px;
+  border: 1px solid black;
+  padding: 20px;
+  border-radius: 20px;
+  position: relative;
+  margin: 10px 0;
+}
+.number{
+  position: absolute;
+  right: 10px;
+}
+.right{
+  display: flex;
   justify-content: flex-end;
 }
-.chat .text-right{
-  height: 100%;
-  width: 60%;
+.chat-right{
   background-color: rgb(213, 249, 186);
-  border-radius: 10px;
-  margin: 30px 0;
-  padding: 20px 20px 10px 20px;
-}
-.chat .number{
-  justify-content: end;
-  color: rgb(207, 210, 211);
-  font-size: 0.8rem;
-  margin-top: 10px;
-  
-}
-.chat .window a{
-  color: rgb(207, 210, 211);
-  text-decoration: none;
-  
-}
-.chat .window{
-  position: relative;
-  
-}
-
-.chat .text-left{
-  height: 20%;
   width: 60%;
+}
+.chat-left{
   background-color: rgb(255, 255, 255);
-  border-radius: 10px;
-  margin: 30px 0;
-  padding: 20px 20px 10px 20px;
-}
-
-.display-chat .profile{
-  width: 50%;
-}
-.display-chat .profile .avatar{
-  margin-right: 20px;
-}
-.display-chat .description{
-  width: 50%;
+  width: 60%;
 }
 
 /* window */

@@ -162,18 +162,29 @@ createApp({
                     date: '10/01/2020 15:51:00',
                     message: 'OK!!',
                     status: 'received'
-                }
+                },
             ],
-        }
-    ]
+        },
+    ],
     
     
+    userChat: 0,
       
       
     }
   },
 
+  computed:{
+    currentChat(){
+        return this.contacts[this.userChat].messages;
+    }
+  },
+
   methods:{
-    
+    selectChat(index){
+        this.userChat = index;
+    }
   }
+
+
 }).mount('#app');
