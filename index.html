@@ -97,16 +97,17 @@
         <div class="display-chat">
 
           <div class="row user">
-            <div class="profile row">
-              <div class="avatar">
-                <img src="img/avatar_1.jpg" alt="">
-              </div>
-
-              <div>
-                <h3>Michele</h3>
-                <span>Ultimo accesso oggi alle 16:26</span>
-              </div>
+            
+          <div class="profile row">
+            <div class="avatar">
+              <img :src="contactActive.avatar" alt="">
             </div>
+
+            <div>
+              <h3>{{contactActive.name}}</h3>
+              <span>Ultimo accesso {{}}</span>
+            </div>
+          </div>  
 
             <div class="description row">
               <nav class="menu">

@@ -170,7 +170,7 @@ createApp({
     
         userChat: 0,
         newMsg: '',
-      
+        contactActive: 0,
     }
   },
 
@@ -179,6 +179,10 @@ createApp({
         return this.contacts[this.userChat].messages;
     }
   },
+
+  created(){
+    this.contactActive = this.contacts[0]
+    },
 
   methods:{
     selectChat(index){
@@ -194,9 +198,16 @@ createApp({
             this.contacts[this.userChat].messages.push(msgNew);
             this.newMsg = '';
         }
-    }
+    },
 
-  }
+    setTimeout(() => {
+
+    },1000),
+
+  },
 
 
 }).mount('#app');
+
+
+
