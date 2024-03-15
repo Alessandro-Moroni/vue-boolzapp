@@ -100,11 +100,11 @@
             
           <div class="profile row">
             <div class="avatar">
-              <img :src="contactActive.avatar" alt="">
+              <img :src="contacts[userChat].avatar" alt="">
             </div>
 
             <div>
-              <h3>{{contactActive.name}}</h3>
+              <h3>{{contacts[userChat].name}}</h3>
               <span>Ultimo accesso {{}}</span>
             </div>
           </div>  
@@ -130,7 +130,7 @@
 
           <div
             class="chat">
-            <div v-for="messageText in contacts[userChat].messages"
+            <div v-for="messageText in currentChat"
             :class="{'sent':messageText.status === 'sent', 'left':messageText.status === 'received'}">
               <div class="msg  right" v-if="messageText.status === 'sent'">
                 <div class=" chat-right msg-chat ">
