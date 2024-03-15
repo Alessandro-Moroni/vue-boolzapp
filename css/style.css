@@ -148,7 +148,11 @@ img{
 .users-chat:hover{
   background-color: rgb(147, 145, 145);
 }
+.users-list .active{
+  background-color: rgb(147, 145, 145);
 
+
+}
 .users-list .name span{
   color: rgb(191, 194, 196);
 }

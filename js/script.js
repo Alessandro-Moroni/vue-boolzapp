@@ -170,14 +170,18 @@ createApp({
     
         userChat: 0,
         newMsg: '',
-     
+        activeUser: {},
     }
   },
 
   computed:{
+      visibleUser(){
+          return this.contacts.filter(user => user.visible)
+      },
     currentChat(){
         return this.contacts[this.userChat].messages;
-    }
+    },
+
   },
 
 
@@ -192,6 +196,7 @@ createApp({
             const msgNew ={
                 message: this.newMsg,
                 status: 'sent',
+                date: 0,
             }
             this.contacts[this.userChat].messages.push(msgNew);
             this.newMsg = '';
@@ -213,6 +218,10 @@ createApp({
    
 
   },
+
+  created(){
+    this.activeUser = this.contacts[0]
+  }
 
 
 }).mount('#app');

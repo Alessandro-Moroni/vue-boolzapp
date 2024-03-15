@@ -71,7 +71,11 @@
           <!-- users list -->
           <div class="users-list">
 
-            <div v-for="(user, index) in contacts" @click="selectChat(index)" class="row users-chat">
+            <div
+              v-for="(user, index) in contacts"
+              @click="selectChat(index), activeUser = user"
+              class="row users-chat"
+              :class="{'active': user === activeUser}">
               <div class="profile row">
                 <img :src="user.avatar" alt="">
               </div>
@@ -81,7 +85,7 @@
                   <h3>{{user.name}}</h3>
                   <span> {{user.messages[user.messages.length-1].message}}</span>
                 </div>
-                <div class="hour">16:05</div>
+                <div class="hour">{{}}</div>
               </div>
             </div>
 
