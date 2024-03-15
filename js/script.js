@@ -187,7 +187,16 @@ createApp({
     },
 
     filterUser(){
-        return this.contacts.filter(user => user.name.toLowerCase().includes(this.searchUser))
+    
+        this.contacts.forEach(user =>{
+            if(user.name.toLowerCase().includes(this.searchUser)){
+                user.visible = true;
+            }else{
+                user.visible = false;
+            }
+            
+        });
+        return this.contacts
     },
 
   },

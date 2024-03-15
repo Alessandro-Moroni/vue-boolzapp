@@ -78,6 +78,7 @@ https://cdn.jsdelivr.net/npm/luxon@3.4.4/build/global/luxon.min.js
             <div
               v-for="(user, index) in filterUser"
               @click="selectChat(index), activeUser = user"
+              v-show="user.visible"
               class="row users-chat"
               :class="{'active': user === activeUser}">
               <div class="profile row">
