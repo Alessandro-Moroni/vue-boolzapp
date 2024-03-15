@@ -155,7 +155,7 @@
             </div>
 
             <div class="text-chat">
-              <input type="text" placeholder="Scrivi un messaggio">
+              <input type="text" placeholder="Scrivi un messaggio" v-model="newMsg" @keyup.enter="sendMsg()">
             </div>
 
             <div>

@@ -168,8 +168,8 @@ createApp({
     ],
     
     
-    userChat: 0,
-      
+        userChat: 0,
+        newMsg: '',
       
     }
   },
@@ -183,7 +183,19 @@ createApp({
   methods:{
     selectChat(index){
         this.userChat = index;
+    },
+
+    sendMsg(){
+        if(this.newMsg.trim() !== ''){
+            const msgNew ={
+                message: this.newMsg,
+                status: 'sent',
+            }
+            this.contacts[this.userChat].messages.push(msgNew);
+            this.newMsg = '';
+        }
     }
+
   }
 
 
