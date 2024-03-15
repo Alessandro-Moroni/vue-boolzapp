@@ -67,7 +67,7 @@ https://cdn.jsdelivr.net/npm/luxon@3.4.4/build/global/luxon.min.js
                 <i class="fa-solid fa-magnifying-glass"></i>
               </div>
               <div>
-                <input type="text" placeholder="Cerca o inizia una nuova chat">
+                <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="searchUser">
               </div>
             </div>
           </div>
@@ -76,7 +76,7 @@ https://cdn.jsdelivr.net/npm/luxon@3.4.4/build/global/luxon.min.js
           <div class="users-list">
 
             <div
-              v-for="(user, index) in contacts"
+              v-for="(user, index) in filterUser"
               @click="selectChat(index), activeUser = user"
               class="row users-chat"
               :class="{'active': user === activeUser}">

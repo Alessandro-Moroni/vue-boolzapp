@@ -173,15 +173,21 @@ createApp({
         newMsg: '',
         activeUser: {},
         dataOra: '',
+        searchUser: '',
     }
   },
 
   computed:{
-      visibleUser(){
-          return this.contacts.filter(user => user.visible)
-      },
+    visibleUser(){
+        return this.contacts.filter(user => user.visible)
+    },
+
     currentChat(){
         return this.contacts[this.userChat].messages;
+    },
+
+    filterUser(){
+        return this.contacts.filter(user => user.name.toLowerCase().includes(this.searchUser))
     },
 
   },
