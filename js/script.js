@@ -1,4 +1,5 @@
 const {createApp} = Vue;
+const {DateTime} = luxon;
 
 createApp({
   data(){
@@ -171,6 +172,7 @@ createApp({
         userChat: 0,
         newMsg: '',
         activeUser: {},
+        dataOra: '',
     }
   },
 
@@ -196,14 +198,14 @@ createApp({
             const msgNew ={
                 message: this.newMsg,
                 status: 'sent',
-                date: 0,
+                date: this.dataOra,
             }
             this.contacts[this.userChat].messages.push(msgNew);
             this.newMsg = '';
 
            setTimeout(() =>{
             const botMsg ={
-                date: 0,
+                date: this.dataOra,
                 message: 'Ok',
                 status: 'received',
             }
@@ -221,6 +223,10 @@ createApp({
 
   created(){
     this.activeUser = this.contacts[0]
+  },
+
+  mounted(){
+    this.dataOra = DateTime.now().setLocale('it').toFormat('dd/mm/yyyy hh:mm')
   }
 
 
